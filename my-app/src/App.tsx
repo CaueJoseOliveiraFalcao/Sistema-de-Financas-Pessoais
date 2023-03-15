@@ -1,12 +1,19 @@
 import React from 'react';
+import * as C from './App.styles';  
+import './App.css'
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      
-    </div>
+      <C.Container>
+        <C.Header>
+          <C.HeaderText>Sistema Financeiro</C.HeaderText>
+        </C.Header>
+        <C.Body>
+
+        </C.Body>
+      </C.Container>
+
   );
 }
 
-export default App;
+
