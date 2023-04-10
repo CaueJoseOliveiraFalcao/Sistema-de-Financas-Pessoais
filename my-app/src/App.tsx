@@ -17,14 +17,14 @@ export default function App() {
   useEffect(()=>{
     Setlistafiltrada(filterbyMount(lista , currentMonth))
   },[lista,currentMonth])
-  console.log(currentMonth)
+  console.log(listaFiltrada)
   return (
       <C.Container>
         <C.Header>
           <C.HeaderText>Sistema Financeiro</C.HeaderText>
         </C.Header>
         <C.Body>
-          <Table />
+          <Table list={listaFiltrada}  />
         </C.Body>
       </C.Container>
 
