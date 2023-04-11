@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TableLine = styled.tr`
+export const TableLine = styled.td`
     background-color:white;
 
 `;

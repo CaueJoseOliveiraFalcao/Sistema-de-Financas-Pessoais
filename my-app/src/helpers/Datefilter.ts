@@ -10,7 +10,6 @@ export const filterbyMount = (list:Item[] , mount:string): Item[] =>{
 
     for (let i in list){
         if (list[i].date.getFullYear() === parseInt(year) && list[i].date.getMonth() === parseInt(month)){
-            console.log(list[i].date.getMonth(), parseInt(month))
             newList.push(list[i])
         }
     }
