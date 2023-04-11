@@ -16,12 +16,7 @@ export const Table = ({list} : Props) => {
             </thead>
             <tbody>
                 {list.map((item,index) => (
-                    <tr key={index}>
-                        <TableArea item={item.date}/>
-                        <TableArea item={item.category}/>
-                        <TableArea item={item.title}/>
-                        <TableArea item={item.value}/>
-                    </tr>
+                        <TableArea key={index} item={item}/>
                 ))}
             </tbody>
         </C.StyledTable>

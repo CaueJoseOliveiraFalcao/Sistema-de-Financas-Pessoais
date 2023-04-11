@@ -15,3 +15,12 @@ export const filterbyMount = (list:Item[] , mount:string): Item[] =>{
     }
     return newList
 }
+export const formatDate = (date : Date): string => {
+    const format = date.toDateString()
+    const year = date.getFullYear();
+    const mounth = date.getMonth();
+    let day = parseInt(format.split(' ')[2])
+
+    return `${addZeroToDate(day)}/${addZeroToDate(mounth)}/${year}`
+}
+const addZeroToDate = (n :number ): string => n < 10 ? `0${n}` : `${n}`
