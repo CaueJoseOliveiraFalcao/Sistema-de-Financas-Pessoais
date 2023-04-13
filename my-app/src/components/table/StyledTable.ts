@@ -10,9 +10,9 @@ export const StyledTable = styled.table`
 
 `;
 
-export const TableHeadColum = styled.th<{largura? : number}>`
+export const TableHeadColum = styled.th<{ largura?: number }>`
    padding: 10px 0;
    text-align:left;
-   width: ${props => props.largura ? `${props.largura}px` : `auto` };
+   width: ${props => props.largura ? `${props.largura}px` : `auto`};
 
 `;

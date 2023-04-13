@@ -2,11 +2,11 @@ import * as C from './StyledTable'
 import { Item } from '../../types/Item'
 import { TableArea } from '../TableArea'
 type Props = {
-    list : Item[]
+    list: Item[]
 }
 
-export const Table = ({list} : Props) => {
-    return(
+export const Table = ({ list }: Props) => {
+    return (
         <C.StyledTable>
             <thead>
                 <C.TableHeadColum largura={100}>Data</C.TableHeadColum>
@@ -15,8 +15,8 @@ export const Table = ({list} : Props) => {
                 <C.TableHeadColum largura={100}>Preço</C.TableHeadColum>
             </thead>
             <tbody>
-                {list.map((item,index) => (
-                        <TableArea key={index} item={item}/>
+                {list.map((item, index) => (
+                    <TableArea key={index} item={item} />
                 ))}
             </tbody>
         </C.StyledTable>

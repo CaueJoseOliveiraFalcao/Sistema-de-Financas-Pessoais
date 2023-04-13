@@ -23,4 +23,26 @@ export const formatDate = (date : Date): string => {
 
     return `${addZeroToDate(day)}/${addZeroToDate(mounth)}/${year}`
 }
-const addZeroToDate = (n :number ): string => n < 10 ? `0${n}` : `${n}`
+export const addZeroToDate = (n :number ): string => n < 10 ? `0${n}` : `${n}`
+
+export const formatMonth = (currentMonth : string): string => {
+    let [year , month] = currentMonth.split('-')
+    const months = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro"
+      ];
+      month = months[parseInt(month)-1]
+      const formatedDate = `${month} de ${year}`
+
+      return  formatedDate
+}
