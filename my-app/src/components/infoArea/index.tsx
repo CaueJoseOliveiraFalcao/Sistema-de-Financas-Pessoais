@@ -3,6 +3,8 @@ import { formatMonth } from '../../helpers/Datefilter'
 type Props = {
     currentmonth: string;
     onMonthChange : (newMonth : string) => void;
+    income : number;
+    expense: number;
 }
 
 export const InfoArea = ({currentmonth , onMonthChange} : Props) => {
