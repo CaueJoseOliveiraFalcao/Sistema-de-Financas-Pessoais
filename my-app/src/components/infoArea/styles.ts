@@ -30,4 +30,15 @@ export const ResumeArea = styled.div`
      padding:20px;
      flex: 2;
      display: flex;
+     justify-content: space-between;
+     text-align: center;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+`;
+
+export const ResumeAreaitens = styled.div`
+     padding:20px;
+`;
+export const Somavalor = styled.div<{ cor?: string }>`
+      color: ${props => props.cor};
 `;

@@ -1,13 +1,15 @@
 import * as C from './styles'
 import { formatMonth } from '../../helpers/Datefilter'
+import { useState , useEffect } from 'react';
 type Props = {
     currentmonth: string;
     onMonthChange : (newMonth : string) => void;
     income : number;
     expense: number;
+    somaValues: number;
 }
 
-export const InfoArea = ({currentmonth , onMonthChange , income , expense} : Props) => {
+export const InfoArea = ({currentmonth , onMonthChange , income , expense , somaValues} : Props) => {
     let currentMonth = currentmonth;
     let formatedCurrentMonth = formatMonth(currentMonth)
     const handlePrevMonth = () =>{
@@ -22,6 +24,16 @@ export const InfoArea = ({currentmonth , onMonthChange , income , expense} : Pro
         currentDate.setMonth(currentDate.getMonth() + 1)
         onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth()+ 1}`);
     }
+    const [valueColor,setvalueColor] = useState('')
+    useEffect(() => {
+            if (income - expense < 0){
+                 setvalueColor('red')
+            }
+            else{
+                setvalueColor('green')
+            }
+        }
+      , [somaValues])
     return(
         <C.Container>
             <C.MonthArea>
@@ -30,6 +42,18 @@ export const InfoArea = ({currentmonth , onMonthChange , income , expense} : Pro
             <C.MonthArrow onClick={handleNextMonth}> ➡ </C.MonthArrow>
             </C.MonthArea>
             <C.ResumeArea>
+                <C.ResumeAreaitens>
+                   <p>Receitas</p>
+                   <p>R$ {income}</p>
+                </C.ResumeAreaitens>
+                <C.ResumeAreaitens>
+                <p>Despesas</p>
+                   <p>R$ {expense}</p>
+                </C.ResumeAreaitens>
+                <C.ResumeAreaitens>
+                <p>Balanço</p>
+                   <C.Somavalor cor={valueColor}  >R$ {valueColor == 'red' ? '-' : ''}{somaValues}</C.Somavalor>
+                </C.ResumeAreaitens>
             </C.ResumeArea>
         </C.Container>
     )
