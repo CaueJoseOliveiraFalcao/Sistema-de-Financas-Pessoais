@@ -7,7 +7,7 @@ type Props = {
     expense: number;
 }
 
-export const InfoArea = ({currentmonth , onMonthChange} : Props) => {
+export const InfoArea = ({currentmonth , onMonthChange , income , expense} : Props) => {
     let currentMonth = currentmonth;
     let formatedCurrentMonth = formatMonth(currentMonth)
     const handlePrevMonth = () =>{

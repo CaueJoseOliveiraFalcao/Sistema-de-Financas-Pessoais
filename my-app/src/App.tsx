@@ -1,4 +1,4 @@
-import React from 'react';
+0import React from 'react';
 import * as C from './App.styles';
 import './App.css'
 import { useState, useEffect } from 'react';
@@ -13,32 +13,17 @@ export default function App() {
   const [lista, Setlista] = useState(itens)
   const [listaFiltrada, Setlistafiltrada] = useState<Item[]>([])
   const [categorias, Setcategoria] = useState(categories)
-  const [SomaLista , SetSomeLista] = useState(0)
+  const [income , Setincome] = useState(0)
+  const [expense , Setexpense] = useState(0)
   const [currentMonth, SetcurrentMonth] = useState(getCurrentMonth)
 
   useEffect(() => {
     Setlistafiltrada(filterbyMount(lista, currentMonth))
-    SomaListraFiltrada(listaFiltrada)
   }, [lista, currentMonth])
   const handleMonth = (newMonth : string) => {
     SetcurrentMonth(newMonth)
   }
-  
-  const SomaListraFiltrada = (listaFiltrada :  Item[]) => {
-    let somaValores = 0
-    listaFiltrada.forEach(element => {
-      if (categories[element.category].expense == false){
-        somaValores += element.value
-      }
-      else{
-         somaValores -= element.value
-      }
-    });
-    console.log(somaValores)
-    SetSomeLista(somaValores)
-    console.log(SomaLista)
-  }
-  console.log(SomaLista)
+
   return (
     <C.Container>
       <C.Header>
@@ -46,6 +31,8 @@ export default function App() {
       </C.Header>
       <C.Body>
         <InfoArea
+        income={income}
+        expense={expense}
          onMonthChange={handleMonth}
          currentmonth={currentMonth} />
         <Table list={listaFiltrada} />
