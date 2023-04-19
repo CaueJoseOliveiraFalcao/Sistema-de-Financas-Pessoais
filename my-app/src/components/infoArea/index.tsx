@@ -52,7 +52,7 @@ export const InfoArea = ({currentmonth , onMonthChange , income , expense , soma
                 </C.ResumeAreaitens>
                 <C.ResumeAreaitens>
                 <p>Balanço</p>
-                   <C.Somavalor cor={valueColor}  >R$ {valueColor == 'red' ? '-' : ''}{somaValues}</C.Somavalor>
+                   <C.Somavalor cor={valueColor}  >R${somaValues}</C.Somavalor>
                 </C.ResumeAreaitens>
             </C.ResumeArea>
         </C.Container>

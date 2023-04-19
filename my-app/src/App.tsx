@@ -39,7 +39,7 @@ export default function App() {
     }
     Setincome(income)
     Setexpense(expense)
-    Setsoma(income + expense)
+    Setsoma(income - expense)
   }, [listaFiltrada])
   const handleItens = (item : Item) => {
     let newlist = [...lista]

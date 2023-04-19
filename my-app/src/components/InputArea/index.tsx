@@ -1,38 +1,44 @@
 import { Item } from '../../types/Item'
 import * as C from './styles'
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 type Props = {
     handleItens : (item : Item) => void
 }
 export const InputArea = ({handleItens} : Props ) =>{
-    const dia = useRef<HTMLInputElement>(null)
-    const mes = useRef<HTMLInputElement>(null)
-    const ano = useRef<HTMLInputElement>(null)
+    const [type,setType] = useState<string>('despesa')
+    const [day,Setday] = useState(new Date().getDay())
+    const [month,Setmonth] = useState(new Date().getMonth() + 1)
+    const [year,Setyear] = useState(new Date().getFullYear())
+
     const handleAddevent = (event : React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const day = dia.current?.value ? parseInt(dia.current.value) : 0;
-        const month = mes.current?.value ? parseInt(mes.current.value) : 0;
-        const year = ano.current?.value ? parseInt(ano.current.value) : 0;
         let newItem : Item = {
             date : new Date(year,month,day),
-            category : 'food',
+            category : type,
             title : 'Item de teste',
             value : 2050
         }
         handleItens(newItem)
         console.log('foi')
     }
+    console.log(type)
     return(
         <C.Container>
             <form action="" onSubmit={handleAddevent}>
-            <label htmlFor="dia">Dia:</label>
-            <C.Inputdata ref={dia} required type='number' />
-            <label htmlFor="dia">Mês:</label>
-            <C.Inputdata ref={mes} required type='number' />
-            <label htmlFor="dia">Ano:</label>
-            <C.Inputdata ref={ano} required type='number' />
-            <button type='submit'>Adicionar</button>
-            <label htmlFor=""></label>
+                <label htmlFor="dia">Dia:</label>
+                <C.Inputdata value={day} onChange={(event) => Setday(parseInt(event.target.value))} required type='number' />
+                <label htmlFor="dia">Mês:</label>
+                <C.Inputdata value={month} onChange={(event) => Setmonth(parseInt(event.target.value))} required type='number' />
+                <label htmlFor="dia">Ano:</label>
+                <C.Inputdata value={year} onChange={(event) => Setyear(parseInt(event.target.value))} required type='number' />
+                <label>
+                    Tipo:
+                    <select value={type} onChange={(event) => setType(event.target.value)}>
+                    <option value="despesa">Despesa</option>
+                    <option value="receita">Receita</option>
+                    </select>
+                </label>
+                <button type='submit'>Adicionar</button>
             </form>
         </C.Container>
     )
