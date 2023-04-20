@@ -6,7 +6,7 @@ type Props = {
 }
 export const InputArea = ({handleItens} : Props ) =>{
     const [type,setType] = useState<string>('despesa')
-    const [day,Setday] = useState(new Date().getDay())
+    let [day, Setday] = useState(new Date().getDate());
     const [month,Setmonth] = useState(new Date().getMonth() + 1)
     const [year,Setyear] = useState(new Date().getFullYear())
     const [title,Settitle] = useState<string>('')

@@ -18,6 +18,7 @@ export default function App() {
   const [expense , Setexpense] = useState(0)
   const [somaValues , Setsoma] = useState(0)
   const [currentMonth, SetcurrentMonth] = useState(getCurrentMonth)
+  console.log(currentMonth)
 
   useEffect(() => {
     Setlistafiltrada(filterbyMount(lista, currentMonth))
