@@ -13,6 +13,7 @@ export const Table = ({ list }: Props) => {
                 <C.TableHeadColum largura={130}>Categoria</C.TableHeadColum>
                 <C.TableHeadColum largura={120}>Titulo</C.TableHeadColum>
                 <C.TableHeadColum largura={100}>Preço</C.TableHeadColum>
+                <C.TableHeadColum largura={100}>Deletar</C.TableHeadColum>
             </thead>
             <tbody>
                 {list.map((item, index) => (

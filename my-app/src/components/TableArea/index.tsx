@@ -17,6 +17,9 @@ export const TableArea = ({item} :Props) => {
               </C.Category>
              <C.TableLine>{item.title}</C.TableLine>
              <C.Value valueColor={categories[item.category].expense}>R$ {item.value}</C.Value>
+             <td>
+                <button>X</button>
+             </td>
           </C.TableContainer>
 
     )

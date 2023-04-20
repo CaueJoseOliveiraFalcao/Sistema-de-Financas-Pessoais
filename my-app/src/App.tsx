@@ -44,7 +44,6 @@ export default function App() {
   const handleItens = (item : Item) => {
     let newlist = [...lista]
     newlist.push(item)
-    console.log(newlist)
     Setlista(newlist)
   }
   return (
